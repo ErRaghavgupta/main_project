@@ -29,50 +29,51 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: initialRoute,
-      onGenerateRoute: (settings) {
-        if (settings.name == initialRoute) {
-          return MaterialPageRoute(
-            builder: (context) {
-              return SplashView();
-            },
-          );
-        } else if (settings.name == onboardingRoute) {
-          return MaterialPageRoute(
-            builder: (context) {
-              return OnboardingView();
-            },
-          );
-        } else if (settings.name == loginRoute) {
-          return MaterialPageRoute(
-            builder: (context) {
-              return LoginView();
-            },
-          );
-        } else if (settings.name == homeRoute) {
-          return MaterialPageRoute(
-            builder: (context) {
-              return HomeView();
-            },
-          );
-        } else if (settings.name == signUpRoute) {
-          return MaterialPageRoute(
-            builder: (context) => SignUp(),
-          );
-        } else if (settings.name == apiDataRoute) {
-          return MaterialPageRoute(
-            builder: (context) => ApiData(),
-          );
-        } else if (settings.name == favouriteRoute) {
-          return MaterialPageRoute(
-            builder: (context) => FavouriteDataView(),
-          );
-        } else if (settings.name == profileRoute) {
-          return MaterialPageRoute(
-            builder: (context) => ProfileView(),
-          );
-        }
-      },
+      // initialRoute: initialRoute,
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == initialRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return SplashView();
+      //       },
+      //     );
+      //   } else if (settings.name == onboardingRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return OnboardingView();
+      //       },
+      //     );
+      //   } else if (settings.name == loginRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return LoginView();
+      //       },
+      //     );
+      //   } else if (settings.name == homeRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return HomeView();
+      //       },
+      //     );
+      //   } else if (settings.name == signUpRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) => SignUp(),
+      //     );
+      //   } else if (settings.name == apiDataRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) => ApiData(),
+      //     );
+      //   } else if (settings.name == favouriteRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) => FavouriteDataView(),
+      //     );
+      //   } else if (settings.name == profileRoute) {
+      //     return MaterialPageRoute(
+      //       builder: (context) => ProfileView(),
+      //     );
+      //   }
+      // },
+      home: HomeView(),
     );
   }
 }
