@@ -9,13 +9,14 @@ import 'package:main_project/routes/routes..dart';
 import 'favdata_view.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
+  bool isDrawer = false;
   int currentIndex = 0;
 
   var list = [ApiData(), FavouriteDataView(), ProfileView()];
@@ -39,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
               elevation: 1.5,
             ),
             onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfileView(),));
+              Navigator.pushNamed(context, profileRoute, arguments: isDrawer);
             },
             child: const Row(children: [
               Icon(Icons.person),
@@ -52,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
               )
             ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           ElevatedButton(
@@ -64,9 +65,10 @@ class _HomeViewState extends State<HomeView> {
             ),
             onPressed: () async {
               var auth = FirebaseAuth.instance;
-              auth.signOut();
               var prefs = await Shared.getPrefs();
               prefs.remove(onboardingKey);
+              prefs.remove(Uid);
+              auth.signOut();
               Navigator.pushNamed(context, loginRoute);
             },
             child: const Row(children: [

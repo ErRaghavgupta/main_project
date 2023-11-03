@@ -3,8 +3,9 @@ class TodoModel {
   String? todo;
   bool? completed;
   int? userId;
+  bool? isfav;
 
-  TodoModel({this.id, this.userId, this.completed, this.todo});
+  TodoModel({this.id, this.userId, this.completed, this.todo,this.isfav = false});
 
   factory TodoModel.fromMap(Map<String, dynamic> map) {
     return TodoModel(

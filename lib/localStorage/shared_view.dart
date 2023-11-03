@@ -5,6 +5,6 @@ class Shared {
     return await SharedPreferences.getInstance();
   }
 }
-  String onboardingKey = "onboarding_key";
 
-
+String onboardingKey = "onboarding_key";
+String Uid = "uid";

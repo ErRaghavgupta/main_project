@@ -52,10 +52,10 @@ class _ApiDataState extends State<ApiData> {
                       child: ListTile(
                         trailing: IconButton(
                             onPressed: () {
-                              selectIndex = index;
+                              snapshot.data!.todos![index].isfav =
+                                  !snapshot.data!.todos![index].isfav!;
                               setState(() {});
                               var db = FirebaseFirestore.instance;
-
                               db.collection("favoriteItems").add(TodoModel(
                                       id: snapshot.data!.todos![index].id,
                                       completed: snapshot
@@ -65,7 +65,7 @@ class _ApiDataState extends State<ApiData> {
                                           snapshot.data!.todos![index].userId)
                                   .toMap());
                             },
-                            icon: selectIndex == index
+                            icon: snapshot.data!.todos![index].isfav!
                                 ? const Icon(
                                     Icons.favorite,
                                     color: Colors.red,
@@ -88,7 +88,6 @@ class _ApiDataState extends State<ApiData> {
             return Container();
           },
         ),
-
       ),
     );
   }

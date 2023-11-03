@@ -191,7 +191,7 @@ class _SignUpState extends State<SignUp> {
                     if (firstnameController.text != "" &&
                         lastNameController.text != "") {
                       var db = FirebaseFirestore.instance;
-                      db.collection("user").add(UserModel(
+                      db.collection("user").doc(auth.user?.uid).set(UserModel(
                               firstName: firstnameController.text,
                               lastName: lastNameController.text,
                               email: emailController.text)
